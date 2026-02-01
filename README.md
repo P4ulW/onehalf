@@ -11,22 +11,13 @@ Neovim 0.8.0+
 
 # Installing
 
-## Using `packer`
-
-```lua
-use { "P4ulW/onehalf.nvim" }
-```
-
 ## Using `lazy.nvim`
 
 ```lua
-{ "P4ulW/onehalf.nvim", priority = 1000 , config = true, opts = ...}
-```
-
-## Using `vim-plug`
-
-```vim
-Plug 'P4ulW/onehalf.nvim'
+return {
+  "https://github.com/P4ulW/onehalf.git",
+  priority = 1000
+}
 ```
 
 # Basic Usage
