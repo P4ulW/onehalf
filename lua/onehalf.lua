@@ -73,46 +73,54 @@ onehalf.config = vim.deepcopy(default_config)
 -- main onehalf color palette
 ---@class onehalfPalette
 onehalf.palette = {
-    dark0_hard = "#21252b", -- Deep background
-    dark0 = "#282c34",      -- Main background
-    dark0_soft = "#2c313a", -- Lighter background
-    dark1 = "#313640",      -- Selection/Highlight
-    dark2 = "#353b45",
-    dark3 = "#3e4451",
-    dark4 = "#4b5263",  -- Comments / Grey
-    light0_hard = "#ffffff",
-    light0 = "#dcdfe4", -- Main foreground
-    light0_soft = "#c8ccd4",
-    light1 = "#abb2bf",
-    light2 = "#9ea5b3",
-    light3 = "#828997",
-    light4 = "#5c6370",
-    bright_red = "#e06c75",
-    bright_green = "#98c379",
-    bright_yellow = "#e5c07b",
-    bright_blue = "#61afef",
-    bright_purple = "#c678dd",
-    bright_aqua = "#56b6c2",
-    bright_orange = "#d19a66",
-    neutral_red = "#e06c75",
-    neutral_green = "#98c379",
-    neutral_yellow = "#e5c07b",
-    neutral_blue = "#61afef",
-    neutral_purple = "#c678dd",
-    neutral_aqua = "#56b6c2",
-    neutral_orange = "#d19a66",
-    faded_red = "#be5046",
-    faded_green = "#73925d",
-    faded_yellow = "#c1a269",
-    faded_blue = "#4882b4",
-    faded_purple = "#a361b7",
-    faded_aqua = "#44919a",
-    faded_orange = "#b28256",
-    dark_red_hard = "#4b2c32",
-    dark_red = "#3e272b",
-    dark_green_hard = "#2c3230",
-    dark_green = "#232726",
-    gray = "#5c6370",
+    -- Backgrounds (Deepest Inferno Purples/Blacks)
+    dark0_hard      = "#000004", -- Deepest black-purple
+    dark0           = "#160b39", -- Dark purple
+    dark0_soft      = "#2c115f", -- Muted purple
+    dark1           = "#420a68", -- Selection highlight
+    dark2           = "#57106e",
+    dark3           = "#6f1d6d",
+    dark4           = "#872766", -- Comments (Muted Magenta)
+
+    -- Foregrounds (Brightest Inferno Yellows/Whites)
+    light0_hard     = "#fcffa4", -- Brightest yellow
+    light0          = "#f1ed6f", -- Main text
+    light0_soft     = "#e2d654",
+    light1          = "#cfc140",
+    light2          = "#baad33",
+    light3          = "#a5992c",
+    light4          = "#8f8625",
+
+    -- Accents (Mapped across the Inferno spectrum)
+    bright_red      = "#bb3754", -- Deep Rose
+    bright_green    = "#fb9906", -- Golden (Inferno lacks green; using gold)
+    bright_yellow   = "#fcfdbf", -- Pale Yellow
+    bright_blue     = "#51127c", -- Indigo
+    bright_purple   = "#812581", -- Magenta
+    bright_aqua     = "#ec671e", -- Vibrant Orange
+    bright_orange   = "#fca50a", -- Bright Orange
+
+    neutral_red     = "#a52c60",
+    neutral_green   = "#e35933",
+    neutral_yellow  = "#f89441",
+    neutral_blue    = "#420a68",
+    neutral_purple  = "#6f1d6d",
+    neutral_aqua    = "#d3436e",
+    neutral_orange  = "#f17020",
+
+    faded_red       = "#781c6d",
+    faded_green     = "#b63679",
+    faded_yellow    = "#e35933",
+    faded_blue      = "#240b52",
+    faded_purple    = "#4b0c6b",
+    faded_aqua      = "#932b80",
+    faded_orange    = "#c83e73",
+
+    dark_red_hard   = "#240b52",
+    dark_red        = "#1b0c41",
+    dark_green_hard = "#140b35",
+    dark_green      = "#000004",
+    gray            = "#872766",
 }
 
 -- get a hex list of onehalf colors based on current bg and constrast config
