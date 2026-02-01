@@ -7,19 +7,19 @@ Neovim 0.8.0+
 ## Using `packer`
 
 ```lua
-use { "P4ulW/onedark.nvim" }
+use { "P4ulW/onehalf.nvim" }
 ```
 
 ## Using `lazy.nvim`
 
 ```lua
-{ "P4ulW/onedark.nvim", priority = 1000 , config = true, opts = ...}
+{ "P4ulW/onehalf.nvim", priority = 1000 , config = true, opts = ...}
 ```
 
 ## Using `vim-plug`
 
 ```vim
-Plug 'P4ulW/onedark.nvim'
+Plug 'P4ulW/onehalf.nvim'
 ```
 
 # Basic Usage
@@ -28,23 +28,23 @@ Inside `init.vim`
 
 ```vim
 set background=dark " or light if you want light mode
-colorscheme onedark
+colorscheme onehalf
 ```
 
 Inside `init.lua`
 
 ```lua
 vim.o.background = "dark" -- or "light" for light mode
-vim.cmd([[colorscheme onedark]])
+vim.cmd([[colorscheme onehalf]])
 ```
 
 # Configuration
 
-Additional settings for onedark are:
+Additional settings for onehalf are:
 
 ```lua
 -- Default options:
-require("onedark").setup({
+require("onehalf").setup({
   terminal_colors = true, -- add neovim terminal colors
   undercurl = true,
   underline = true,
@@ -67,7 +67,7 @@ require("onedark").setup({
   dim_inactive = false,
   transparent_mode = false,
 })
-vim.cmd("colorscheme onedark")
+vim.cmd("colorscheme onehalf")
 ```
 
 **VERY IMPORTANT**: Make sure to call setup() **BEFORE** calling the colorscheme command, to use your custom configs
@@ -79,12 +79,12 @@ vim.cmd("colorscheme onedark")
 You can specify your own palette colors. For example:
 
 ```lua
-require("onedark").setup({
+require("onehalf").setup({
     palette_overrides = {
         bright_green = "#990000",
     }
 })
-vim.cmd("colorscheme onedark")
+vim.cmd("colorscheme onehalf")
 ```
 
 ### Highlight groups
@@ -93,24 +93,24 @@ If you don't enjoy the current color for a specific highlight group, now you can
 example:
 
 ```lua
-require("onedark").setup({
+require("onehalf").setup({
     overrides = {
         SignColumn = {bg = "#ff9900"}
     }
 })
-vim.cmd("colorscheme onedark")
+vim.cmd("colorscheme onehalf")
 ```
 
 It also works with treesitter groups and lsp semantic highlight tokens
 
 ```lua
-require("onedark").setup({
+require("onehalf").setup({
     overrides = {
         ["@lsp.type.method"] = { bg = "#ff9900" },
         ["@comment.lua"] = { bg = "#000000" },
     }
 })
-vim.cmd("colorscheme onedark")
+vim.cmd("colorscheme onehalf")
 ```
 
 Please note that the override values must follow the attributes from the highlight group map, such as:

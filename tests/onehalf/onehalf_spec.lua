@@ -1,6 +1,6 @@
-require("plenary.reload").reload_module("onedark", true)
-local onedark = require("onedark")
-local default = onedark.config
+require("plenary.reload").reload_module("onehalf", true)
+local onehalf = require("onehalf")
+local default = onehalf.config
 
 local function clear_term_colors()
     for item = 0, 15 do
@@ -10,8 +10,8 @@ end
 
 describe("tests", function()
     it("works with default values", function()
-        onedark.setup()
-        assert.are.same(onedark.config, default)
+        onehalf.setup()
+        assert.are.same(onehalf.config, default)
     end)
 
     it("works with config overrides", function()
@@ -39,8 +39,8 @@ describe("tests", function()
             transparent_mode = false,
         }
 
-        onedark.setup({ undercurl = false, underline = false })
-        assert.are.same(onedark.config, expected)
+        onehalf.setup({ undercurl = false, underline = false })
+        assert.are.same(onehalf.config, expected)
     end)
 
     it("should override a hightlight color", function()
@@ -51,8 +51,8 @@ describe("tests", function()
             },
         }
 
-        onedark.setup(config)
-        onedark.load()
+        onehalf.setup(config)
+        onehalf.load()
 
         local search_group_id = vim.api.nvim_get_hl_id_by_name("Search")
         local search_values = {
@@ -78,8 +78,8 @@ describe("tests", function()
             },
         }
 
-        onedark.setup(config)
-        onedark.load()
+        onehalf.setup(config)
+        onehalf.load()
 
         local search_group_id = vim.api.nvim_get_hl_id_by_name("Search")
         local search_values = {
@@ -103,8 +103,8 @@ describe("tests", function()
                 TelescopePreviewBorder = { fg = "#990000", bg = nil },
             },
         }
-        onedark.setup(config)
-        onedark.load()
+        onehalf.setup(config)
+        onehalf.load()
 
         local group_id = vim.api.nvim_get_hl_id_by_name("TelescopePreviewBorder")
         local values = {
@@ -124,8 +124,8 @@ describe("tests", function()
             },
         }
 
-        onedark.setup(config)
-        onedark.load()
+        onehalf.setup(config)
+        onehalf.load()
 
         local group_id = vim.api.nvim_get_hl_id_by_name("Comment")
         local values = {
@@ -136,54 +136,54 @@ describe("tests", function()
 
     it("does not set terminal colors when terminal_colors is false", function()
         clear_term_colors()
-        onedark.setup({ terminal_colors = false })
-        onedark.load()
+        onehalf.setup({ terminal_colors = false })
+        onehalf.load()
         assert.is_nil(vim.g.terminal_color_0)
     end)
 
     it("sets terminal colors when terminal_colors is true", function()
         clear_term_colors()
-        onedark.setup({ terminal_colors = true })
-        onedark.load()
+        onehalf.setup({ terminal_colors = true })
+        onehalf.load()
 
         -- dark bg
-        local colors = require("onedark").palette
+        local colors = require("onehalf").palette
         vim.opt.background = "dark"
         assert.are.same(vim.g.terminal_color_0, colors.dark0)
 
         -- light bg
         clear_term_colors()
-        onedark.load()
+        onehalf.load()
         vim.opt.background = "light"
         assert.are.same(vim.g.terminal_color_0, colors.light0)
     end)
 
     it("multiple calls to setup() are independent", function()
         -- First call to setup
-        onedark.setup({
+        onehalf.setup({
             contrast = "soft",
             overrides = { CursorLine = { bg = "#FF0000" } },
         })
-        assert.are.same(onedark.config.contrast, "soft")
-        assert.are.same(onedark.config.overrides.CursorLine.bg, "#FF0000")
+        assert.are.same(onehalf.config.contrast, "soft")
+        assert.are.same(onehalf.config.overrides.CursorLine.bg, "#FF0000")
 
         -- Second call to setup
-        onedark.setup({ contrast = "hard" })
-        assert.are.same(onedark.config.contrast, "hard")
+        onehalf.setup({ contrast = "hard" })
+        assert.are.same(onehalf.config.contrast, "hard")
         -- Check that overrides from the first call are not present
-        assert.is_nil(onedark.config.overrides.CursorLine)
+        assert.is_nil(onehalf.config.overrides.CursorLine)
 
         -- Third call to setup with different overrides
-        onedark.setup({
+        onehalf.setup({
             overrides = { Normal = { fg = "#00FF00" } },
         })
-        assert.are.same(onedark.config.contrast, "")               -- Contrast should be reset to default (empty string)
-        assert.is_nil(onedark.config.overrides.CursorLine)         -- Still no CursorLine override
-        assert.are.same(onedark.config.overrides.Normal.fg, "#00FF00") -- New override is present
+        assert.are.same(onehalf.config.contrast, "")                   -- Contrast should be reset to default (empty string)
+        assert.is_nil(onehalf.config.overrides.CursorLine)             -- Still no CursorLine override
+        assert.are.same(onehalf.config.overrides.Normal.fg, "#00FF00") -- New override is present
 
         -- Call setup with no arguments to reset to defaults
-        onedark.setup()
-        assert.are.same(onedark.config.contrast, "")
-        assert.is_nil(onedark.config.overrides.Normal)
+        onehalf.setup()
+        assert.are.same(onehalf.config.contrast, "")
+        assert.is_nil(onehalf.config.overrides.Normal)
     end)
 end)
