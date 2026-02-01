@@ -1,7 +1,7 @@
----@class onedark
----@field config onedarkConfig
----@field palette onedarkPalette
-local onedark = {}
+---@class onehalf
+---@field config onehalfConfig
+---@field palette onehalfPalette
+local onehalf = {}
 
 ---@alias Contrast "hard" | "soft" | ""
 
@@ -28,7 +28,7 @@ local onedark = {}
 ---@field reverse boolean?
 ---@field nocombine boolean?
 
----@class onedarkConfig
+---@class onehalfConfig
 ---@field bold boolean?
 ---@field contrast Contrast?
 ---@field dim_inactive boolean?
@@ -68,11 +68,11 @@ local default_config = {
     transparent_mode = false,
 }
 
-onedark.config = vim.deepcopy(default_config)
+onehalf.config = vim.deepcopy(default_config)
 
--- main onedark color palette
----@class onedarkPalette
-onedark.palette = {
+-- main onehalf color palette
+---@class onehalfPalette
+onehalf.palette = {
     dark0_hard = "#21252b", -- Deep background
     dark0 = "#282c34",      -- Main background
     dark0_soft = "#2c313a", -- Lighter background
@@ -115,10 +115,10 @@ onedark.palette = {
     gray = "#5c6370",
 }
 
--- get a hex list of onedark colors based on current bg and constrast config
+-- get a hex list of onehalf colors based on current bg and constrast config
 local function get_colors()
-    local p = onedark.palette
-    local config = onedark.config
+    local p = onehalf.palette
+    local config = onehalf.config
 
     for color, hex in pairs(config.palette_overrides) do
         p[color] = hex
@@ -200,7 +200,7 @@ end
 
 local function get_groups()
     local colors = get_colors()
-    local config = onedark.config
+    local config = onehalf.config
 
     if config.terminal_colors then
         local term_colors = {
@@ -227,52 +227,52 @@ local function get_groups()
     end
 
     local groups = {
-        onedarkFg0 = { fg = colors.fg0 },
-        onedarkFg1 = { fg = colors.fg1 },
-        onedarkFg2 = { fg = colors.fg2 },
-        onedarkFg3 = { fg = colors.fg3 },
-        onedarkFg4 = { fg = colors.fg4 },
-        onedarkGray = { fg = colors.gray },
-        onedarkBg0 = { fg = colors.bg0 },
-        onedarkBg1 = { fg = colors.bg1 },
-        onedarkBg2 = { fg = colors.bg2 },
-        onedarkBg3 = { fg = colors.bg3 },
-        onedarkBg4 = { fg = colors.bg4 },
-        onedarkRed = { fg = colors.red },
-        onedarkRedBold = { fg = colors.red, bold = config.bold },
-        onedarkGreen = { fg = colors.green },
-        onedarkGreenBold = { fg = colors.green, bold = config.bold },
-        onedarkYellow = { fg = colors.yellow },
-        onedarkYellowBold = { fg = colors.yellow, bold = config.bold },
-        onedarkBlue = { fg = colors.blue },
-        onedarkBlueBold = { fg = colors.blue, bold = config.bold },
-        onedarkPurple = { fg = colors.purple },
-        onedarkPurpleBold = { fg = colors.purple, bold = config.bold },
-        onedarkAqua = { fg = colors.aqua },
-        onedarkAquaBold = { fg = colors.aqua, bold = config.bold },
-        onedarkOrange = { fg = colors.orange },
-        onedarkOrangeBold = { fg = colors.orange, bold = config.bold },
-        onedarkRedSign = config.transparent_mode and { fg = colors.red, reverse = config.invert_signs }
+        onehalfFg0 = { fg = colors.fg0 },
+        onehalfFg1 = { fg = colors.fg1 },
+        onehalfFg2 = { fg = colors.fg2 },
+        onehalfFg3 = { fg = colors.fg3 },
+        onehalfFg4 = { fg = colors.fg4 },
+        onehalfGray = { fg = colors.gray },
+        onehalfBg0 = { fg = colors.bg0 },
+        onehalfBg1 = { fg = colors.bg1 },
+        onehalfBg2 = { fg = colors.bg2 },
+        onehalfBg3 = { fg = colors.bg3 },
+        onehalfBg4 = { fg = colors.bg4 },
+        onehalfRed = { fg = colors.red },
+        onehalfRedBold = { fg = colors.red, bold = config.bold },
+        onehalfGreen = { fg = colors.green },
+        onehalfGreenBold = { fg = colors.green, bold = config.bold },
+        onehalfYellow = { fg = colors.yellow },
+        onehalfYellowBold = { fg = colors.yellow, bold = config.bold },
+        onehalfBlue = { fg = colors.blue },
+        onehalfBlueBold = { fg = colors.blue, bold = config.bold },
+        onehalfPurple = { fg = colors.purple },
+        onehalfPurpleBold = { fg = colors.purple, bold = config.bold },
+        onehalfAqua = { fg = colors.aqua },
+        onehalfAquaBold = { fg = colors.aqua, bold = config.bold },
+        onehalfOrange = { fg = colors.orange },
+        onehalfOrangeBold = { fg = colors.orange, bold = config.bold },
+        onehalfRedSign = config.transparent_mode and { fg = colors.red, reverse = config.invert_signs }
             or { fg = colors.red, bg = colors.bg1, reverse = config.invert_signs },
-        onedarkGreenSign = config.transparent_mode and { fg = colors.green, reverse = config.invert_signs }
+        onehalfGreenSign = config.transparent_mode and { fg = colors.green, reverse = config.invert_signs }
             or { fg = colors.green, bg = colors.bg1, reverse = config.invert_signs },
-        onedarkYellowSign = config.transparent_mode and { fg = colors.yellow, reverse = config.invert_signs }
+        onehalfYellowSign = config.transparent_mode and { fg = colors.yellow, reverse = config.invert_signs }
             or { fg = colors.yellow, bg = colors.bg1, reverse = config.invert_signs },
-        onedarkBlueSign = config.transparent_mode and { fg = colors.blue, reverse = config.invert_signs }
+        onehalfBlueSign = config.transparent_mode and { fg = colors.blue, reverse = config.invert_signs }
             or { fg = colors.blue, bg = colors.bg1, reverse = config.invert_signs },
-        onedarkPurpleSign = config.transparent_mode and { fg = colors.purple, reverse = config.invert_signs }
+        onehalfPurpleSign = config.transparent_mode and { fg = colors.purple, reverse = config.invert_signs }
             or { fg = colors.purple, bg = colors.bg1, reverse = config.invert_signs },
-        onedarkAquaSign = config.transparent_mode and { fg = colors.aqua, reverse = config.invert_signs }
+        onehalfAquaSign = config.transparent_mode and { fg = colors.aqua, reverse = config.invert_signs }
             or { fg = colors.aqua, bg = colors.bg1, reverse = config.invert_signs },
-        onedarkOrangeSign = config.transparent_mode and { fg = colors.orange, reverse = config.invert_signs }
+        onehalfOrangeSign = config.transparent_mode and { fg = colors.orange, reverse = config.invert_signs }
             or { fg = colors.orange, bg = colors.bg1, reverse = config.invert_signs },
-        onedarkRedUnderline = { undercurl = config.undercurl, sp = colors.red },
-        onedarkGreenUnderline = { undercurl = config.undercurl, sp = colors.green },
-        onedarkYellowUnderline = { undercurl = config.undercurl, sp = colors.yellow },
-        onedarkBlueUnderline = { undercurl = config.undercurl, sp = colors.blue },
-        onedarkPurpleUnderline = { undercurl = config.undercurl, sp = colors.purple },
-        onedarkAquaUnderline = { undercurl = config.undercurl, sp = colors.aqua },
-        onedarkOrangeUnderline = { undercurl = config.undercurl, sp = colors.orange },
+        onehalfRedUnderline = { undercurl = config.undercurl, sp = colors.red },
+        onehalfGreenUnderline = { undercurl = config.undercurl, sp = colors.green },
+        onehalfYellowUnderline = { undercurl = config.undercurl, sp = colors.yellow },
+        onehalfBlueUnderline = { undercurl = config.undercurl, sp = colors.blue },
+        onehalfPurpleUnderline = { undercurl = config.undercurl, sp = colors.purple },
+        onehalfAquaUnderline = { undercurl = config.undercurl, sp = colors.aqua },
+        onehalfOrangeUnderline = { undercurl = config.undercurl, sp = colors.orange },
         Normal = config.transparent_mode and { fg = colors.fg1, bg = nil } or { fg = colors.fg1, bg = colors.bg0 },
         NormalFloat = config.transparent_mode and { fg = colors.fg1, bg = nil } or { fg = colors.fg1, bg = colors.bg1 },
         NormalNC = config.dim_inactive and { fg = colors.fg0, bg = colors.bg1 } or { link = "Normal" },
@@ -285,14 +285,14 @@ local function get_groups()
         ColorColumn = { bg = colors.bg1 },
         Conceal = { fg = colors.blue },
         CursorLineNr = { fg = colors.yellow, bg = colors.bg1 },
-        NonText = { link = "onedarkBg2" },
-        SpecialKey = { link = "onedarkFg4" },
+        NonText = { link = "onehalfBg2" },
+        SpecialKey = { link = "onehalfFg4" },
         Visual = { bg = colors.bg3, reverse = config.invert_selection },
         VisualNOS = { link = "Visual" },
         Search = { fg = colors.yellow, bg = colors.bg0, reverse = config.inverse },
         IncSearch = { fg = colors.orange, bg = colors.bg0, reverse = config.inverse },
         CurSearch = { link = "IncSearch" },
-        QuickFixLine = { link = "onedarkPurple" },
+        QuickFixLine = { link = "onehalfPurple" },
         Underlined = { fg = colors.blue, underline = config.underline },
         StatusLine = { fg = colors.fg1, bg = colors.bg2 },
         StatusLineNC = { fg = colors.fg4, bg = colors.bg1 },
@@ -300,13 +300,13 @@ local function get_groups()
         WinBarNC = { fg = colors.fg3, bg = colors.bg1 },
         WinSeparator = config.transparent_mode and { fg = colors.bg3, bg = nil } or { fg = colors.bg3, bg = colors.bg0 },
         WildMenu = { fg = colors.blue, bg = colors.bg2, bold = config.bold },
-        Directory = { link = "onedarkGreenBold" },
-        Title = { link = "onedarkGreenBold" },
+        Directory = { link = "onehalfGreenBold" },
+        Title = { link = "onehalfGreenBold" },
         ErrorMsg = { fg = colors.bg0, bg = colors.red, bold = config.bold },
-        MoreMsg = { link = "onedarkYellowBold" },
-        ModeMsg = { link = "onedarkYellowBold" },
-        Question = { link = "onedarkOrangeBold" },
-        WarningMsg = { link = "onedarkRedBold" },
+        MoreMsg = { link = "onehalfYellowBold" },
+        ModeMsg = { link = "onehalfYellowBold" },
+        Question = { link = "onehalfOrangeBold" },
+        WarningMsg = { link = "onehalfRedBold" },
         LineNr = { fg = colors.bg4 },
         SignColumn = config.transparent_mode and { bg = nil } or { bg = colors.bg1 },
         Folded = { fg = colors.gray, bg = colors.bg1, italic = config.italic.folds },
@@ -315,35 +315,35 @@ local function get_groups()
         vCursor = { link = "Cursor" },
         iCursor = { link = "Cursor" },
         lCursor = { link = "Cursor" },
-        Special = { link = "onedarkOrange" },
+        Special = { link = "onehalfOrange" },
         Comment = { fg = colors.gray, italic = config.italic.comments },
         Todo = { fg = colors.bg0, bg = colors.yellow, bold = config.bold, italic = config.italic.comments },
         Done = { fg = colors.orange, bold = config.bold, italic = config.italic.comments },
         Error = { fg = colors.red, bold = config.bold, reverse = config.inverse },
-        Statement = { link = "onedarkRed" },
-        Conditional = { link = "onedarkRed" },
-        Repeat = { link = "onedarkRed" },
-        Label = { link = "onedarkRed" },
-        Exception = { link = "onedarkRed" },
+        Statement = { link = "onehalfRed" },
+        Conditional = { link = "onehalfRed" },
+        Repeat = { link = "onehalfRed" },
+        Label = { link = "onehalfRed" },
+        Exception = { link = "onehalfRed" },
         Operator = { fg = colors.orange, italic = config.italic.operators },
-        Keyword = { link = "onedarkRed" },
-        Identifier = { link = "onedarkBlue" },
-        Function = { link = "onedarkGreenBold" },
-        PreProc = { link = "onedarkAqua" },
-        Include = { link = "onedarkAqua" },
-        Define = { link = "onedarkAqua" },
-        Macro = { link = "onedarkAqua" },
-        PreCondit = { link = "onedarkAqua" },
-        Constant = { link = "onedarkPurple" },
-        Character = { link = "onedarkPurple" },
+        Keyword = { link = "onehalfRed" },
+        Identifier = { link = "onehalfBlue" },
+        Function = { link = "onehalfGreenBold" },
+        PreProc = { link = "onehalfAqua" },
+        Include = { link = "onehalfAqua" },
+        Define = { link = "onehalfAqua" },
+        Macro = { link = "onehalfAqua" },
+        PreCondit = { link = "onehalfAqua" },
+        Constant = { link = "onehalfPurple" },
+        Character = { link = "onehalfPurple" },
         String = { fg = colors.green, italic = config.italic.strings },
-        Boolean = { link = "onedarkPurple" },
-        Number = { link = "onedarkPurple" },
-        Float = { link = "onedarkPurple" },
-        Type = { link = "onedarkYellow" },
-        StorageClass = { link = "onedarkOrange" },
-        Structure = { link = "onedarkAqua" },
-        Typedef = { link = "onedarkYellow" },
+        Boolean = { link = "onehalfPurple" },
+        Number = { link = "onehalfPurple" },
+        Float = { link = "onehalfPurple" },
+        Type = { link = "onehalfYellow" },
+        StorageClass = { link = "onehalfOrange" },
+        Structure = { link = "onehalfAqua" },
+        Typedef = { link = "onehalfYellow" },
         Pmenu = { fg = colors.fg1, bg = colors.bg2 },
         PmenuSel = { fg = colors.bg2, bg = colors.blue, bold = config.bold },
         PmenuSbar = { bg = colors.bg2 },
@@ -352,15 +352,15 @@ local function get_groups()
         DiffAdd = { bg = colors.dark_green },
         DiffChange = { bg = colors.dark_aqua },
         DiffText = { bg = colors.yellow, fg = colors.bg0 },
-        SpellCap = { link = "onedarkBlueUnderline" },
-        SpellBad = { link = "onedarkRedUnderline" },
-        SpellLocal = { link = "onedarkAquaUnderline" },
-        SpellRare = { link = "onedarkPurpleUnderline" },
+        SpellCap = { link = "onehalfBlueUnderline" },
+        SpellBad = { link = "onehalfRedUnderline" },
+        SpellLocal = { link = "onehalfAquaUnderline" },
+        SpellRare = { link = "onehalfPurpleUnderline" },
         Whitespace = { fg = colors.bg2 },
-        Delimiter = { link = "onedarkOrange" },
+        Delimiter = { link = "onehalfOrange" },
         EndOfBuffer = { link = "NonText" },
-        DiagnosticError = { link = "onedarkRed" },
-        DiagnosticWarn = { link = "onedarkYellow" },
+        DiagnosticError = { link = "onehalfRed" },
+        DiagnosticWarn = { link = "onehalfYellow" },
         DiagnosticInfo = { link = "onedarkBlue" },
         DiagnosticDeprecated = { strikethrough = config.strikethrough },
         DiagnosticHint = { link = "onedarkAqua" },

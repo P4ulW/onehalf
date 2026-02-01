@@ -1,85 +1,85 @@
-*onedark.nvim.txt*       For Neovim >= 0.8.0      Last change: 2026 January 13
+*onehalf.nvim.txt*       For Neovim >= 0.8.0      Last change: 2026 January 13
 
 ==============================================================================
-Table of Contents                             *onedark.nvim-table-of-contents*
+Table of Contents                             *onehalf.nvim-table-of-contents*
 
-1. Prerequisites                                  |onedark.nvim-prerequisites|
-2. Installing                                        |onedark.nvim-installing|
-  - Using packer                        |onedark.nvim-installing-using-packer|
-  - Using lazy.nvim                  |onedark.nvim-installing-using-lazy.nvim|
-  - Using vim-plug                    |onedark.nvim-installing-using-vim-plug|
-3. Basic Usage                                      |onedark.nvim-basic-usage|
-4. Configuration                                  |onedark.nvim-configuration|
-  - Overriding                         |onedark.nvim-configuration-overriding|
+1. Prerequisites                                  |onehalf.nvim-prerequisites|
+2. Installing                                        |onehalf.nvim-installing|
+  - Using packer                        |onehalf.nvim-installing-using-packer|
+  - Using lazy.nvim                  |onehalf.nvim-installing-using-lazy.nvim|
+  - Using vim-plug                    |onehalf.nvim-installing-using-vim-plug|
+3. Basic Usage                                      |onehalf.nvim-basic-usage|
+4. Configuration                                  |onehalf.nvim-configuration|
+  - Overriding                         |onehalf.nvim-configuration-overriding|
 >
-      <h1> <img src="https://i.postimg.cc/WpQzgxVh/plugin-Icon.png" width="80px"><br/>onedark.nvim</h1>
+      <h1> <img src="https://i.postimg.cc/WpQzgxVh/plugin-Icon.png" width="80px"><br/>onehalf.nvim</h1>
      </div>
 <
 
 
-A port of onedark community <https://github.com/onedark-community/onedark>
+A port of onehalf community <https://github.com/onehalf-community/onehalf>
 theme to lua with treesitter
 <https://github.com/nvim-treesitter/nvim-treesitter> and |semantic highlights|
 support!
 
 
 ==============================================================================
-1. Prerequisites                                  *onedark.nvim-prerequisites*
+1. Prerequisites                                  *onehalf.nvim-prerequisites*
 
 Neovim 0.8.0+
 
 
 ==============================================================================
-2. Installing                                        *onedark.nvim-installing*
+2. Installing                                        *onehalf.nvim-installing*
 
 
-USING PACKER                            *onedark.nvim-installing-using-packer*
+USING PACKER                            *onehalf.nvim-installing-using-packer*
 
 >lua
-    use { "ellisonleao/onedark.nvim" }
+    use { "ellisonleao/onehalf.nvim" }
 <
 
 
-USING LAZY.NVIM                      *onedark.nvim-installing-using-lazy.nvim*
+USING LAZY.NVIM                      *onehalf.nvim-installing-using-lazy.nvim*
 
 >lua
-    { "ellisonleao/onedark.nvim", priority = 1000 , config = true, opts = ...}
+    { "ellisonleao/onehalf.nvim", priority = 1000 , config = true, opts = ...}
 <
 
 
-USING VIM-PLUG                        *onedark.nvim-installing-using-vim-plug*
+USING VIM-PLUG                        *onehalf.nvim-installing-using-vim-plug*
 
 >vim
-    Plug 'ellisonleao/onedark.nvim'
+    Plug 'ellisonleao/onehalf.nvim'
 <
 
 
 ==============================================================================
-3. Basic Usage                                      *onedark.nvim-basic-usage*
+3. Basic Usage                                      *onehalf.nvim-basic-usage*
 
 Inside `init.vim`
 
 >vim
     set background=dark " or light if you want light mode
-    colorscheme onedark
+    colorscheme onehalf
 <
 
 Inside `init.lua`
 
 >lua
     vim.o.background = "dark" -- or "light" for light mode
-    vim.cmd([[colorscheme onedark]])
+    vim.cmd([[colorscheme onehalf]])
 <
 
 
 ==============================================================================
-4. Configuration                                  *onedark.nvim-configuration*
+4. Configuration                                  *onehalf.nvim-configuration*
 
-Additional settings for onedark are:
+Additional settings for onehalf are:
 
 >lua
     -- Default options:
-    require("onedark").setup({
+    require("onehalf").setup({
       terminal_colors = true, -- add neovim terminal colors
       undercurl = true,
       underline = true,
@@ -102,14 +102,14 @@ Additional settings for onedark are:
       dim_inactive = false,
       transparent_mode = false,
     })
-    vim.cmd("colorscheme onedark")
+    vim.cmd("colorscheme onehalf")
 <
 
 **VERY IMPORTANT**: Make sure to call setup() **BEFORE** calling the
 colorscheme command, to use your custom configs
 
 
-OVERRIDING                             *onedark.nvim-configuration-overriding*
+OVERRIDING                             *onehalf.nvim-configuration-overriding*
 
 
 PALETTE ~
@@ -117,12 +117,12 @@ PALETTE ~
 You can specify your own palette colors. For example:
 
 >lua
-    require("onedark").setup({
+    require("onehalf").setup({
         palette_overrides = {
             bright_green = "#990000",
         }
     })
-    vim.cmd("colorscheme onedark")
+    vim.cmd("colorscheme onehalf")
 <
 
 
@@ -132,24 +132,24 @@ If you don’t enjoy the current color for a specific highlight group, now you
 can just override it in the setup. For example:
 
 >lua
-    require("onedark").setup({
+    require("onehalf").setup({
         overrides = {
             SignColumn = {bg = "#ff9900"}
         }
     })
-    vim.cmd("colorscheme onedark")
+    vim.cmd("colorscheme onehalf")
 <
 
 It also works with treesitter groups and lsp semantic highlight tokens
 
 >lua
-    require("onedark").setup({
+    require("onehalf").setup({
         overrides = {
             ["@lsp.type.method"] = { bg = "#ff9900" },
             ["@comment.lua"] = { bg = "#000000" },
         }
     })
-    vim.cmd("colorscheme onedark")
+    vim.cmd("colorscheme onehalf")
 <
 
 Please note that the override values must follow the attributes from the
